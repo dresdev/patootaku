@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar cuenta y datos – Pato Otaku</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
+            --primary-dark: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .content {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .email-box {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .email-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .note {
+            background-color: rgba(255, 126, 95, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--primary-dark);
+            border-radius: 0 5px 5px 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 25px 15px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .email-box {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                Pato Otaku
+            </div>
+            <h1>Eliminar cuenta y datos</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <p>En Pato Otaku respetamos tu derecho a la privacidad.</p>
+            <p>Si deseas solicitar la eliminación de tu cuenta y de los datos asociados (nombre, correo e imagen de perfil), por favor escríbenos a:</p>
+            
+            <div class="email-box">
+                <span class="email-icon">📩</span> andresfelipegr02@gmail.com
+            </div>
+            
+            <div class="note">
+                <p>Tu solicitud será atendida en un plazo máximo de 30 días.</p>
+                <p>Una vez completado el proceso, todos tus datos serán eliminados de forma permanente de nuestros sistemas, salvo aquellos que estemos obligados a conservar por motivos legales.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
