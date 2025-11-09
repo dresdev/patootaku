@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Política de Privacidad - Pato Otaku</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - Pato Otaku</title>
+    <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
-            --primary-dark: #e74c3c;
-            --text-color: #333;
-            --light-bg: #f9f9f9;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-card: #252525;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #bb86fc;
+            --accent-secondary: #03dac6;
+            --warning-color: #cf6679;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -22,9 +27,10 @@
         }
         
         body {
-            background-color: var(--light-bg);
-            color: var(--text-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
         }
         
         .container {
@@ -34,13 +40,13 @@
         }
         
         header {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 40px 20px;
+            background-color: var(--bg-secondary);
+            padding: 30px 20px;
             text-align: center;
-            border-radius: 0 0 20px 20px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-shadow: var(--shadow);
             margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-color);
         }
         
         .logo {
@@ -51,57 +57,84 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            color: var(--accent-color);
         }
         
         h1 {
             font-size: 2rem;
             margin-bottom: 10px;
+            color: var(--text-primary);
         }
         
         .last-updated {
             font-style: italic;
-            opacity: 0.9;
+            opacity: 0.8;
+            color: var(--text-secondary);
         }
         
         .content {
-            background-color: var(--white);
-            border-radius: 15px;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         h2 {
-            color: var(--primary-dark);
+            color: var(--accent-color);
             margin: 25px 0 15px;
             padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary-gradient);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h3 {
+            color: var(--accent-secondary);
+            margin: 20px 0 10px;
         }
         
         p {
             margin-bottom: 15px;
+            color: var(--text-primary);
         }
         
-        ul {
+        ul, ol {
             margin-left: 20px;
             margin-bottom: 15px;
         }
         
         li {
             margin-bottom: 8px;
+            color: var(--text-primary);
         }
         
         .highlight {
-            background-color: rgba(255, 126, 95, 0.1);
+            background-color: rgba(187, 134, 252, 0.1);
             padding: 15px;
-            border-left: 4px solid var(--primary-dark);
+            border-left: 4px solid var(--accent-color);
             border-radius: 0 5px 5px 0;
             margin: 20px 0;
         }
         
+        .warning {
+            background-color: rgba(207, 102, 121, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--warning-color);
+            border-radius: 0 5px 5px 0;
+            margin: 20px 0;
+        }
+        
+        .consent-section {
+            background-color: rgba(3, 218, 198, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 25px 0;
+            border: 1px solid rgba(3, 218, 198, 0.2);
+        }
+        
         .contact-info {
-            background: var(--primary-gradient);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+            color: #000;
             padding: 15px;
             border-radius: 10px;
             text-align: center;
@@ -112,17 +145,73 @@
         footer {
             text-align: center;
             padding: 20px;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .data-table th {
+            background-color: rgba(187, 134, 252, 0.2);
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .toggle-content {
+            margin: 20px 0;
+        }
+        
+        .toggle-btn {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #a970f7;
+        }
+        
+        .toggle-content .content {
+            display: none;
+            margin-top: 15px;
+        }
+        
+        .toggle-content.active .content {
+            display: block;
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 15px;
             }
             
             header {
-                padding: 30px 15px;
+                padding: 25px 15px;
             }
             
             .logo {
@@ -136,104 +225,180 @@
             .content {
                 padding: 20px;
             }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .data-table th, .data-table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
         }
     </style>
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <div class="logo">
-                    Pato Otaku
-                </div>
-                <h1>Política de Privacidad</h1>
-                <p class="last-updated">Última actualización: 25 de septiembre
-                    de 2025</p>
-            </div>
-        </header>
-
+</head>
+<body>
+    <header>
         <div class="container">
-            <div class="content">
-                <p>En Pato Otaku, respetamos y protegemos la privacidad de
-                    nuestros usuarios. Esta Política de Privacidad explica cómo
-                    recopilamos, usamos y resguardamos tu información cuando
-                    utilizas nuestra aplicación.</p>
+            <div class="logo">
+                Pato Otaku
+            </div>
+            <h1>Política de Privacidad</h1>
+            <p class="last-updated">Última actualización: 9 de noviembre de 2025</p>
+        </div>
+    </header>
 
-                <h2>1. Información que recopilamos</h2>
-                <p>Al registrarte o iniciar sesión en nuestra aplicación,
-                    podemos solicitar y almacenar ciertos datos básicos de tu
-                    perfil, tales como:</p>
-                <ul>
-                    <li>Nombre</li>
-                    <li>Dirección de correo electrónico</li>
-                    <li>Imagen de perfil</li>
-                </ul>
-                <p>Esta información se utiliza únicamente para identificarte
-                    dentro de la aplicación y mejorar tu experiencia de uso.</p>
+    <div class="container">
+        <div class="content">
+            <p>En Pato Otaku, respetamos y protegemos la privacidad de nuestros usuarios. Esta Política de Privacidad explica cómo recopilamos, usamos y resguardamos tu información cuando utilizas nuestra aplicación.</p>
 
-                <h2>2. Publicidad en la aplicación</h2>
-                <p>Nuestra aplicación muestra anuncios con el fin de mantener el
-                    servicio gratuito. Los proveedores de anuncios pueden
-                    recopilar datos no identificables relacionados con el uso de
-                    la aplicación (por ejemplo, interacciones, frecuencia de
-                    uso, tipo de dispositivo).</p>
-                <p>Estos datos se utilizan exclusivamente para mostrar
-                    publicidad más relevante y mejorar el servicio.</p>
+            <div class="warning">
+                <p><strong>AVISO IMPORTANTE SOBRE RECOPILACIÓN DE DATOS:</strong></p>
+                <p>Nuestra aplicación recopila información sobre las aplicaciones instaladas en tu dispositivo para personalizar los anuncios mostrados a través de nuestro proveedor de publicidad, Wortise. Esta información se utiliza exclusivamente para mejorar la relevancia de los anuncios y no se comparte con terceros adicionales.</p>
+                <p>Mostraremos un aviso destacado dentro de la aplicación solicitando tu consentimiento explícito antes de recopilar esta información.</p>
+            </div>
 
-                <h2>3. Uso de la información</h2>
-                <p>La información recopilada se utiliza para:</p>
-                <ul>
-                    <li>Permitir el acceso y autenticación en la
-                        aplicación.</li>
-                    <li>Personalizar tu experiencia de usuario.</li>
-                    <li>Mostrar anuncios adecuados y relevantes.</li>
-                    <li>Mantener la seguridad y correcto funcionamiento del
-                        servicio.</li>
-                </ul>
+            <h2>1. Información que recopilamos</h2>
+            <p>Al registrarte o iniciar sesión en nuestra aplicación, podemos solicitar y almacenar ciertos datos básicos de tu perfil, tales como:</p>
+            <ul>
+                <li>Nombre</li>
+                <li>Dirección de correo electrónico</li>
+                <li>Imagen de perfil</li>
+            </ul>
+            
+            <h3>Información sobre aplicaciones instaladas</h3>
+            <p>Para personalizar la publicidad, nuestra aplicación, a través de nuestro proveedor de publicidad Wortise, puede recopilar información sobre las aplicaciones instaladas en tu dispositivo.</p>
+            
+            <div class="consent-section">
+                <p><strong>AVISO DE CONSENTIMIENTO DESTACADO:</strong></p>
+                <p>"Pato Otaku recopila información sobre aplicaciones instaladas para personalizar anuncios a través de Wortise. Esta información se utiliza únicamente para mostrar publicidad más relevante y no se comparte con terceros adicionales."</p>
+                <p>Este aviso se mostrará claramente dentro de la aplicación y requerirá tu consentimiento explícito antes de proceder con la recopilación de datos.</p>
+            </div>
+            
+            <p>Esta información se utiliza únicamente para identificarte dentro de la aplicación y mejorar tu experiencia de uso.</p>
 
-                <h2>4. Compartición de datos</h2>
-                <p>No compartimos tu información personal con terceros, salvo
-                    con los proveedores de servicios estrictamente necesarios
-                    para el funcionamiento de la aplicación (como autenticación
-                    y publicidad). Estos proveedores se rigen por sus propias
-                    políticas de privacidad y manejan los datos de forma
-                    responsable y segura.</p>
+            <h2>2. Publicidad en la aplicación</h2>
+            <p>Nuestra aplicación muestra anuncios con el fin de mantener el servicio gratuito. Utilizamos el proveedor de publicidad Wortise para gestionar estos anuncios.</p>
+            
+            <h3>Datos recopilados por Wortise</h3>
+            <p>Wortise puede recopilar los siguientes tipos de datos:</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de dato</th>
+                        <th>Propósito</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Información de aplicaciones instaladas</td>
+                        <td>Personalizar anuncios relevantes</td>
+                        <td>Nombres de aplicaciones instaladas</td>
+                    </tr>
+                    <tr>
+                        <td>Datos de uso de la aplicación</td>
+                        <td>Mejorar la experiencia publicitaria</td>
+                        <td>Frecuencia de uso, interacciones</td>
+                    </tr>
+                    <tr>
+                        <td>Información del dispositivo</td>
+                        <td>Optimizar la visualización de anuncios</td>
+                        <td>Tipo de dispositivo, sistema operativo</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>Estos datos se utilizan exclusivamente para mostrar publicidad más relevante y mejorar el servicio.</p>
 
-                <h2>5. Seguridad de los datos</h2>
-                <p>Implementamos medidas técnicas y organizativas adecuadas para
-                    proteger tu información contra accesos no autorizados,
-                    pérdida o alteración.</p>
+            <h2>3. Uso de la información</h2>
+            <p>La información recopilada se utiliza para:</p>
+            <ul>
+                <li>Permitir el acceso y autenticación en la aplicación.</li>
+                <li>Personalizar tu experiencia de usuario.</li>
+                <li>Mostrar anuncios adecuados y relevantes.</li>
+                <li>Mantener la seguridad y correcto funcionamiento del servicio.</li>
+            </ul>
 
-                <h2>6. Derechos del usuario</h2>
-                <p>Tienes derecho a:</p>
-                <ul>
-                    <li>Acceder a tus datos almacenados.</li>
-                    <li>Solicitar la corrección o eliminación de tus datos.</li>
-                    <li>Retirar tu consentimiento para el uso de tus datos en
-                        cualquier momento, lo que podría limitar el acceso a
-                        ciertas funciones de la aplicación.</li>
-                </ul>
-                <!-- <div class="highlight">
-                    <p>Para ejercer estos derechos, puedes contactarnos a través
-                        del correo:
-                        <strong>patootaku.soporte@gmail.com</strong></p>
-                </div> -->
+            <h2>4. Compartición de datos</h2>
+            <p>No compartimos tu información personal con terceros, salvo con los proveedores de servicios estrictamente necesarios para el funcionamiento de la aplicación (como autenticación y publicidad). Estos proveedores se rigen por sus propias políticas de privacidad y manejan los datos de forma responsable y segura.</p>
+            
+            <p>Wortise, nuestro proveedor de publicidad, puede recopilar y procesar datos de acuerdo con su propia política de privacidad, disponible en su sitio web oficial.</p>
 
-                <h2>7. Cambios en esta política</h2>
-                <p>Podemos actualizar esta Política de Privacidad en cualquier
-                    momento. Notificaremos cualquier cambio importante dentro de
-                    la aplicación o a través de otros medios adecuados.</p>
+            <h2>5. Seguridad de los datos</h2>
+            <p>Implementamos medidas técnicas y organizativas adecuadas para proteger tu información contra accesos no autorizados, pérdida o alteración.</p>
 
-                <!-- <div class="contact-info">
-                    Si tienes alguna pregunta sobre esta Política de Privacidad,
-                    contáctanos en: patootaku.soporte@gmail.com
-                </div> -->
+            <h2>6. Derechos del usuario</h2>
+            <p>Tienes derecho a:</p>
+            <ul>
+                <li>Acceder a tus datos almacenados.</li>
+                <li>Solicitar la corrección o eliminación de tus datos.</li>
+                <li>Retirar tu consentimiento para el uso de tus datos en cualquier momento, lo que podría limitar el acceso a ciertas funciones de la aplicación.</li>
+                <li>Revocar el consentimiento para la recopilación de información sobre aplicaciones instaladas en cualquier momento desde los ajustes de la aplicación.</li>
+            </ul>
+            
+            <div class="highlight">
+                <p>Para ejercer estos derechos, puedes contactarnos a través del correo: <strong>soporte.patootaku@gmail.com</strong></p>
+            </div>
+
+            <h2>7. Cambios en esta política</h2>
+            <p>Podemos actualizar esta Política de Privacidad en cualquier momento. Notificaremos cualquier cambio importante dentro de la aplicación o a través de otros medios adecuados.</p>
+
+            <div class="contact-info">
+                Si tienes alguna pregunta sobre esta Política de Privacidad, contáctanos en: patootaku.soporte@gmail.com
             </div>
         </div>
+    </div>
 
-        <footer>
-            <div class="container">
-                <p>&copy; 2025 Pato Otaku. Todos los derechos reservados.</p>
-            </div>
-        </footer>
-    </body>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pato Otaku. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad para expandir/contraer secciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtns = document.querySelectorAll('.toggle-btn');
+            
+            toggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+                    
+                    // Cambiar el texto del botón
+                    if (parent.classList.contains('active')) {
+                        this.innerHTML = '<span>▼</span> Ocultar detalles';
+                    } else {
+                        this.innerHTML = '<span>▶</span> Mostrar más detalles';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
